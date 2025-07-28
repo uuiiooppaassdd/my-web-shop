@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-banner">
+        สมาชิกใหม่รับส่วนลด 15% ใช้โค้ด: RARE15 🎉 ดูเงื่อนไขและข้อกำหนด
+    </div>
+
+    <header>
+        <nav>
+            <a href="#" class="logo" id="logoLink">🏺 Rare Treasures</a>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link" data-section="home">ใหม่และฮิตติดชาร์ต</a></li>
+                <li><a href="#" class="nav-link" data-section="men">ผู้ชาย</a></li>
+                <li><a href="#" class="nav-link" data-section="women">ผู้หญิง</a></li>
+                <li><a href="#" class="nav-link" data-section="kids">เด็ก</a></li>
+                <li><a href="#" class="nav-link" data-section="sale">ลดราคา</a></li>
+                <li><a href="#" class="nav-link" data-section="snkrs">SNKRS</a></li>
+            </ul>
+            <div class="nav-icons">
+                <input type="text" class="search-box" placeholder="ค้นหา" id="headerSearch">
+                <button class="icon-btn" id="favButton">🤍</button>
+                <button class="icon-btn" id="cartButton">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="homeSection" class="active-section">
+            <div class="hero">
+                <h1>Field General</h1>
+                <p>รังสรรค์อยู่บนจังหวะนาย ชิ้นเคล่อนด้วยแพลตฟอร์ม ที่ใช่น้าเพื่อการใช้งานในทุกสถาน</p>
+                <a href="#" class="cta-button">สำรวจคอลเลกชัน</a>
+            </div>
+
+            <h2 class="section-title">สินค้าแนะนำ</h2>
+            <div class="category-filters" id="categoryFilters">
+                <button class="filter-btn active" data-category="all">ทั้งหมด</button>
+                <button class="filter-btn" data-category="collectibles">ของสะสม</button>
+                <button class="filter-btn" data-category="music">ดนตรี</button>
+                <button class="filter-btn" data-category="equipment">อุปกรณ์</button>
+                <button class="filter-btn" data-category="memorabilia">ของที่ระลึก</button>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+                </div>
+        </section>
+
+        <section id="productsSection" style="display: none;">
+            <h2 class="section-title">สินค้าทั้งหมด</h2>
+            <div class="product-grid" id="allProductGrid">
+                </div>
+        </section>
+
+        <section id="orderTrackingSection" style="display: none;">
+            <div class="order-tracking">
+                <h2 class="section-title" style="text-align: center;">ติดตามสถานะคำสั่งซื้อ</h2>
+                <input type="text" class="tracking-input" placeholder="ป้อนหมายเลขคำสั่งซื้อ" id="trackingInput">
+                <button class="track-btn" id="trackOrderBtn">ติดตามคำสั่งซื้อ</button>
+
+                <div class="order-status" id="orderStatusDisplay" style="display: none;">
+                    <h3>สถานะคำสั่งซื้อ: <span id="orderIdDisplay"></span></h3>
+                    <p>วันที่สั่งซื้อ: <span id="orderDateDisplay"></span></p>
+                    <p>ที่อยู่จัดส่ง: <span id="shippingAddressDisplay"></span></p>
+
+                    <div class="status-steps">
+                        <div class="status-step" id="step1">1</div>
+                        <div class="status-step" id="step2">2</div>
+                        <div class="status-step" id="step3">3</div>
+                        <div class="status-step" id="step4">4</div>
+                    </div>
+                    <div class="status-labels">
+                        <span>รับคำสั่งซื้อ</span>
+                        <span>กำลังแพ็ค</span>
+                        <span>กำลังจัดส่ง</span>
+                        <span>จัดส่งสำเร็จ</span>
+                    </div>
+                    <p style="margin-top: 20px;">สถานะปัจจุบัน: <strong id="currentStatusText"></strong></p>
+                </div>
+            </div>
+        </section>
+
+        <div id="productDetailModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModalBtn">&times;</span>
+                <div class="product-detail">
+                    <div class="product-images">
+                        <div class="thumbnail-list" id="thumbnailList">
+                            </div>
+                        <div class="main-image" id="modalMainImage">🖼️</div>
+                    </div>
+                    <div class="product-detail-info">
+                        <h2 id="modalProductName"></h2>
+                        <p class="product-detail-category" id="modalProductCategory"></p>
+                        <p class="product-detail-price" id="modalProductPrice"></p>
+                        <div class="size-selector" id="modalSizeSelector">
+                            <h3>เลือกขนาด</h3>
+                            <div class="size-grid" id="sizeGrid">
+                                </div>
+                        </div>
+                        <p id="modalProductDescription"></p>
+                        <p class="product-stock" id="modalProductStock">เหลือในสต็อก: <span></span></p>
+
+                        <div class="product-actions">
+                            <button class="add-to-bag-btn" id="modalAddToCartBtn">เพิ่มลงถุง</button>
+                            <button class="favorite-btn">🤍 เพิ่มในรายการโปรด</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="cartSidebar" class="cart-sidebar">
+            <div class="cart-header">
+                <h2>ตะกร้าสินค้า</h2>
+                <button class="icon-btn" id="closeCartBtn">✕</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <p>ไม่มีสินค้าในตะกร้า</p>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>รวม:</span>
+                    <span id="cartTotal">0 บาท</span>
+                </div>
+                <button class="checkout-btn">ดำเนินการชำระเงิน</button>
+            </div>
+        </div>
+
+        <div id="loadingAnimation" class="loading">
+            <div class="spinner"></div>
+        </div>
+
+    </main>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
